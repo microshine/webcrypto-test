@@ -1,6 +1,7 @@
-// var ALGORITHM = { name: "RSASSA-PKCS1-v1_5", hash: "SHA-256", publicExponent: new Uint8Array([1, 0, 1]), modulusLength: 2048 };
-var ALGORITHM = { name: "RSA-OAEP", hash: "SHA-1", publicExponent: new Uint8Array([1, 0, 1]), modulusLength: 2048 };
+var ALGORITHM = { name: "RSASSA-PKCS1-v1_5", hash: "SHA-1", publicExponent: new Uint8Array([3]), modulusLength: 1024 };
+// var ALGORITHM = { name: "RSA-OAEP", hash: "SHA-1", publicExponent: new Uint8Array([1, 0, 1]), modulusLength: 2048 };
 // var ALGORITHM = { name: "AES-CBC", length: 256, iv: new Uint8Array([1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1, 2, 3, 4, 5, 6]) };
+// var ALGORITHM = { name: "ECDSA", hash: "SHA-256", namedCurve: "P-256" };
 
 var DATA = new Uint8Array([1, 2, 3, 4, 5, 6, 7, 8, 9, 0]);
 
@@ -99,12 +100,14 @@ function TestEncryption() {
         })
 }
 
-// TestSigning()
-TestEncryption()
+TestSigning()
+// TestEncryption()
     .then(function () {
         console.log("Test: success");
+        alert("Success");
     })
     .catch(function (error) {
         console.log("Test: error");
         console.error(error);
+        alert("Error");
     })
